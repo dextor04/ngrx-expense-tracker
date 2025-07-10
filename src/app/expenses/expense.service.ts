@@ -2,20 +2,28 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Expense } from './expense.model';
-import { catchError, Observable, throwError } from 'rxjs';
+import { catchError, map, Observable, throwError } from 'rxjs';
 import { v4 as uuidv4 } from 'uuid';
 @Injectable({ providedIn: 'root' })
 export class ExpenseService {
   constructor(private store: Store) {}
   private http = inject(HttpClient);
-  private expenseUrl = 'http://localhost:3000/expenses';
-
+  private expenseUrl =
+    'https://api.myjson.online/v1/records/995d62c9-5074-43bf-9fb2-7efd66235442';
+  //   private expenseUrl = 'http://localhost:3000/expenses';
   //   getexpense
   getExpenses() {
-    return this.http
-      .get<Expense[]>(this.expenseUrl)
-      .pipe(catchError(this.handleError));
+    return this.http.get<{ data: Expense[] }>(this.expenseUrl).pipe(
+      map((response) => response.data), // ✅ Extract the array
+      catchError(this.handleError)
+    );
   }
+  //     getExpenses() {
+  //     return this.http
+  //       .get<Expense[]>(this.expenseUrl)
+  //       .pipe(catchError(this.handleError));
+  //   }
+
   // addexpense
   addExpense(expenseData: Omit<Expense, 'id'>): Observable<Expense> {
     const newExpense: Expense = {

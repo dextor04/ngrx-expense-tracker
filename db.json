@@ -13,6 +13,13 @@
       "amount": 100,
       "category": "Food",
       "date": "2025-07-10T00:00:00.000Z"
+    },
+    {
+      "id": "76a285f6-b83f-43bc-8973-1a60126a6702",
+      "description": "travel",
+      "amount": 100,
+      "category": "Transport",
+      "date": "2025-07-10T00:00:00.000Z"
     }
   ]
 }
