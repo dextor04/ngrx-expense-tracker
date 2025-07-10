@@ -1,0 +1,18 @@
+{
+  "expenses": [
+    {
+      "id": "1ccd07dd-4a6b-4869-adb5-000ab0162a04",
+      "description": "salary",
+      "amount": 25200,
+      "category": "Income",
+      "date": "2025-07-10T00:00:00.000Z"
+    },
+    {
+      "id": "826c9a67-0387-4efd-a58f-c7d3dd1d1a7a",
+      "description": "expense",
+      "amount": 100,
+      "category": "Food",
+      "date": "2025-07-10T00:00:00.000Z"
+    }
+  ]
+}
